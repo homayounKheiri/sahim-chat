@@ -44,7 +44,7 @@ const paletteColors: PaletteOptions = {
     contrastText: "#6deaa6",
   },
   warning: {
-    main: "#FCA311",
+    main: "#ff5e00",
   },
   error: {
     main: "#FF7473",

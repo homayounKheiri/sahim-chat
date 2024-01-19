@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import ChatItem from "./ChatItem";
-import { Divider, Stack } from "@mui/material";
+import { Box, Divider, InputAdornment, Stack, TextField } from "@mui/material";
+import { IconSearch } from "@tabler/icons-react";
 
 export default function ChatList() {
 
@@ -37,15 +38,37 @@ export default function ChatList() {
     return (
         <>
             <Stack direction={"column"} sx={{overflow: 'hidden'}}>
+                <TextField
+                    placeholder="جستجو"
+                    variant="standard"
+                    multiline
+                    sx={{
+                        bgcolor: '#ddd',
+                        m: '14px',
+                        p: '10px',
+                        borderRadius: '10px'
+                    }}
+                    maxRows={5}
+                    InputProps={{
+                        disableUnderline: true,
+                        endAdornment: (
+                            <InputAdornment position="end">
+                                <IconSearch/>
+                            </InputAdornment>
+                        )
+                    }}
+                />
                 {chats.map((item, index) => {
                     return (
                         <>
-                            <ChatItem 
-                                title={item.title}
-                                subtitle={item.subtitle}
-                                key={item.id}
-                            >
-                            </ChatItem>
+                            <Box sx={{p: '14px'}}>
+                                <ChatItem 
+                                    title={item.title}
+                                    subtitle={item.subtitle}
+                                    key={item.id}
+                                >
+                                </ChatItem>
+                            </Box>
 
                             {index < chats.length-1 && <Divider variant="middle"/>} 
                         </>                   

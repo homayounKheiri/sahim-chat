@@ -1,6 +1,6 @@
 "use client"
 
-import { Box, Button, IconButton, Stack, TextField } from "@mui/material";
+import { Box, Button, IconButton, Stack, TextField, Typography } from "@mui/material";
 import MessageItem from "../component/MessageItem";
 import { useState } from "react";
 import { IconPaperclip, IconSend } from "@tabler/icons-react";
@@ -114,13 +114,34 @@ export default function chatPage() {
 
     ])
     
+    const [title, setTitle] = useState('راننده 1')
+    
     return (
-        <Stack sx={{with: 1, height: 1, px: '30px'}} justifyContent={"end"} >
+        <Stack sx={{with: 1, height: 1, px: '30px'}} position={'relative'} justifyContent={"end"}>
             <Stack 
+                sx={{
+                    height: '70px',
+                    position: 'absolute', 
+                    top: 0, 
+                    right: 0, 
+                    left: 0, 
+                    zIndex: 2, 
+                    pl: '25px', 
+                    bgcolor: 'white',
+                    borderBottom: '1px solid #ccc'
+                }}
+                direction={'row'}
+                alignItems={'center'}
+            >
+                <Typography fontSize={'1.4rem'} fontWeight={'bold'}>{title}</Typography>
+            </Stack>
+
+            <Stack
                 overflow={"auto"} 
                 direction={'column-reverse'}
                 sx={{
-                    py: '16px', 
+                    pb: '16px',
+                    pt: '80px',
                     '&::-webkit-scrollbar': {display: 'none'},
                 }}>
                 {messages.toReversed().map(msg => {

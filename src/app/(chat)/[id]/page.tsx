@@ -6,7 +6,6 @@ import { useState } from "react";
 import { IconPaperclip, IconSend } from "@tabler/icons-react";
 
 export default function chatPage() {
-
     const [messages, setMessages] = useState([
         {
             id: 1,
@@ -116,14 +115,15 @@ export default function chatPage() {
     ])
     
     return (
-        <Stack sx={{with: 1, height: 1, px: '30px'}} justifyContent={"end"}>
-            <Box 
+        <Stack sx={{with: 1, height: 1, px: '30px'}} justifyContent={"end"} >
+            <Stack 
                 overflow={"auto"} 
+                direction={'column-reverse'}
                 sx={{
                     py: '16px', 
                     '&::-webkit-scrollbar': {display: 'none'},
                 }}>
-                {messages.map(msg => {
+                {messages.toReversed().map(msg => {
                     return (
                         <MessageItem
                             img={msg.img}
@@ -134,7 +134,7 @@ export default function chatPage() {
                         />
                     )
                 })}
-            </Box>
+            </Stack>
 
             <Stack direction="column" sx={{border: 'solid 1px #aaa', borderRadius: '10px', p: '12px', mb: '18px', mx: '-10px'}}>
                 <TextField

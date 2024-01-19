@@ -5,7 +5,12 @@ import MessageItem from "../component/MessageItem";
 import { useState } from "react";
 import { IconPaperclip, IconSend } from "@tabler/icons-react";
 
-export default function chatPage() {
+interface propsType {
+    id: number,
+    title: string
+}
+
+export default function chatPage(props: propsType) {
     const [messages, setMessages] = useState([
         {
             id: 1,
@@ -114,8 +119,6 @@ export default function chatPage() {
 
     ])
     
-    const [title, setTitle] = useState('راننده 1')
-    
     return (
         <Stack sx={{with: 1, height: 1, px: '30px'}} position={'relative'} justifyContent={"end"}>
             <Stack 
@@ -133,7 +136,7 @@ export default function chatPage() {
                 direction={'row'}
                 alignItems={'center'}
             >
-                <Typography fontSize={'1.4rem'} fontWeight={'bold'}>{title}</Typography>
+                <Typography fontSize={'1.4rem'} fontWeight={'bold'}>{props.title}</Typography>
             </Stack>
 
             <Stack

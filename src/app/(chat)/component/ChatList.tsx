@@ -11,7 +11,7 @@ export default function ChatList() {
         {
             id: 1,
             title: "راننده 1",
-            subtitle: "سلام . حرکت کردم"
+            subtitle: "سلام . حرکت کردم و توراهم . اگه چیزی نیازه بگو سر راه بگیرم بیارم. اگه هم نه که التماس دعا"
         },
         {
             id: 2,
@@ -33,11 +33,95 @@ export default function ChatList() {
             title: "راننده 1",
             subtitle: "سلام . حرکت کردم"
         },
+
+        {
+            id: 6,
+            title: "راننده 1",
+            subtitle: "سلام . حرکت کردم"
+        },
+        {
+            id: 7,
+            title: "راننده 1",
+            subtitle: "سلام . حرکت کردم"
+        },
+        {
+            id: 8,
+            title: "راننده 1",
+            subtitle: "سلام . حرکت کردم"
+        },
+        {
+            id: 9,
+            title: "راننده 1",
+            subtitle: "سلام . حرکت کردم"
+        },
+
+        {
+            id: 10,
+            title: "راننده 1",
+            subtitle: "سلام . حرکت کردم"
+        },
+        {
+            id: 11,
+            title: "راننده 1",
+            subtitle: "سلام . حرکت کردم"
+        },
+        {
+            id: 12,
+            title: "راننده 1",
+            subtitle: "سلام . حرکت کردم"
+        },
+        {
+            id: 13,
+            title: "راننده 1",
+            subtitle: "سلام . حرکت کردم"
+        },
+
+        {
+            id: 14,
+            title: "راننده 1",
+            subtitle: "سلام . حرکت کردم"
+        },
+        {
+            id: 15,
+            title: "راننده 1",
+            subtitle: "سلام . حرکت کردم"
+        },
+        {
+            id: 16,
+            title: "راننده 1",
+            subtitle: "سلام . حرکت کردم"
+        },
+        {
+            id: 17,
+            title: "راننده 1",
+            subtitle: "سلام . حرکت کردم"
+        },
+
+        {
+            id: 18,
+            title: "راننده 1",
+            subtitle: "سلام . حرکت کردم"
+        },
+        {
+            id: 19,
+            title: "راننده 1",
+            subtitle: "سلام . حرکت کردم"
+        },
+        {
+            id: 20,
+            title: "راننده 1",
+            subtitle: "سلام . حرکت کردم"
+        },
+        {
+            id: 21,
+            title: "راننده 1",
+            subtitle: "سلام . حرکت کردم"
+        },
     ])
     
     return (
         <>
-            <Stack direction={"column"} sx={{overflow: 'hidden'}}>
+            <Stack direction={"column"} sx={{overflow: 'hidden', height: 1}}>
                 <TextField
                     placeholder="جستجو"
                     variant="standard"
@@ -58,22 +142,27 @@ export default function ChatList() {
                         )
                     }}
                 />
-                {chats.map((item, index) => {
-                    return (
-                        <>
-                            <Box sx={{p: '14px'}}>
+                <Stack 
+                    direction={'column'} 
+                    sx={{
+                        overflow: 'auto',
+                        '&::-webkit-scrollbar': {display: 'none'},
+                    }}
+                >
+                    {chats.map((item, index) => {
+                        return (
+                            <Box key={item.id}>
                                 <ChatItem 
                                     title={item.title}
                                     subtitle={item.subtitle}
-                                    key={item.id}
                                 >
                                 </ChatItem>
-                            </Box>
 
-                            {index < chats.length-1 && <Divider variant="middle"/>} 
-                        </>                   
-                    )
-                })}
+                                {index < chats.length-1 && <Divider variant="middle"/>} 
+                            </Box>                   
+                        )
+                    })}
+                </Stack>
             </Stack>
         </>
     )

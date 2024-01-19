@@ -5,6 +5,7 @@ import React from "react";
 import ChatList from "./component/ChatList";
 
 export default function chat({children} : {children: React.ReactNode}) {
+    
     return (
         <main>
             <Grid container sx={{width: 1, height: '100vh'}}>

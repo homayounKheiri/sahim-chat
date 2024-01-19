@@ -2,15 +2,12 @@
 
 import { Box, Button, IconButton, Stack, TextField, Typography } from "@mui/material";
 import MessageItem from "../component/MessageItem";
-import { useState } from "react";
-import { IconPaperclip, IconSend } from "@tabler/icons-react";
+import { useContext, useState } from "react";
+import { IconArrowLeft, IconPaperclip, IconSend } from "@tabler/icons-react";
+import { ChatContext } from "../ContextProviders/ChatContext";
+import { useRouter } from "next/navigation";
 
-interface propsType {
-    id: number,
-    title: string
-}
-
-export default function chatPage(props: propsType) {
+export default function chatPage() {
     const [messages, setMessages] = useState([
         {
             id: 1,
@@ -119,8 +116,19 @@ export default function chatPage(props: propsType) {
 
     ])
     
+    const chatContext = useContext(ChatContext);
+    
+    const router = useRouter();
+
     return (
-        <Stack sx={{with: 1, height: 1, px: '30px'}} position={'relative'} justifyContent={"end"}>
+        <Stack 
+            sx={{
+                with: 1, 
+                height: 1, 
+            }} 
+            position={'relative'} 
+            justifyContent={"end"}
+        >
             <Stack 
                 sx={{
                     height: '70px',
@@ -135,8 +143,12 @@ export default function chatPage(props: propsType) {
                 }}
                 direction={'row'}
                 alignItems={'center'}
+                justifyContent={'space-between'}
             >
-                <Typography fontSize={'1.4rem'} fontWeight={'bold'}>{props.title}</Typography>
+                <Typography fontSize={'1.4rem'} fontWeight={'bold'}>{chatContext?.title}</Typography>
+                <IconButton sx={{mr: '8px'}} onClick={() => router.replace('/')}>
+                    <IconArrowLeft/>
+                </IconButton>
             </Stack>
 
             <Stack
@@ -145,6 +157,7 @@ export default function chatPage(props: propsType) {
                 sx={{
                     pb: '16px',
                     pt: '80px',
+                    px: {xs: '10px', sm: '30px'},
                     '&::-webkit-scrollbar': {display: 'none'},
                 }}>
                 {messages.toReversed().map(msg => {
@@ -160,7 +173,17 @@ export default function chatPage(props: propsType) {
                 })}
             </Stack>
 
-            <Stack direction="column" sx={{border: 'solid 1px #aaa', borderRadius: '10px', p: '12px', mb: '18px', mx: '-10px'}}>
+            <Stack 
+                direction="column" 
+                sx={{
+                    border: {sm: 'solid 1px #aaa'}, 
+                    borderTop: {xs: 'solid 1px #aaa'}, 
+                    borderRadius: {sm: '10px'}, 
+                    p: '12px', 
+                    mb: {sm: '20px'}, 
+                    mx: {sm: '20px'}
+                }}
+            >
                 <TextField
                     placeholder="بنویسید ..."
                     variant="standard"

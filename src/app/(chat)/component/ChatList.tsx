@@ -9,112 +9,55 @@ export default function ChatList() {
 
     const [chats, setChats] = useState([
         {
-            id: 1,
+            id: '1',
             title: "راننده 1",
             subtitle: "سلام . حرکت کردم و توراهم . اگه چیزی نیازه بگو سر راه بگیرم بیارم. اگه هم نه که التماس دعا"
         },
         {
-            id: 2,
-            title: "راننده 1",
+            id: '2',
+            title: "راننده 2",
             subtitle: "سلام . حرکت کردم"
         },
         {
-            id: 3,
-            title: "راننده 1",
+            id: '3',
+            title: "راننده 3",
             subtitle: "سلام . حرکت کردم"
         },
         {
-            id: 4,
-            title: "راننده 1",
+            id: '4',
+            title: "راننده 4",
             subtitle: "سلام . حرکت کردم"
         },
         {
-            id: 5,
-            title: "راننده 1",
-            subtitle: "سلام . حرکت کردم"
-        },
-
-        {
-            id: 6,
-            title: "راننده 1",
-            subtitle: "سلام . حرکت کردم"
-        },
-        {
-            id: 7,
-            title: "راننده 1",
-            subtitle: "سلام . حرکت کردم"
-        },
-        {
-            id: 8,
-            title: "راننده 1",
-            subtitle: "سلام . حرکت کردم"
-        },
-        {
-            id: 9,
-            title: "راننده 1",
+            id: '5',
+            title: "راننده 5",
             subtitle: "سلام . حرکت کردم"
         },
 
         {
-            id: 10,
-            title: "راننده 1",
+            id: '6',
+            title: "راننده 6",
             subtitle: "سلام . حرکت کردم"
         },
         {
-            id: 11,
-            title: "راننده 1",
+            id: '7',
+            title: "راننده 7",
             subtitle: "سلام . حرکت کردم"
         },
         {
-            id: 12,
-            title: "راننده 1",
+            id: '8',
+            title: "راننده 8",
             subtitle: "سلام . حرکت کردم"
         },
         {
-            id: 13,
-            title: "راننده 1",
-            subtitle: "سلام . حرکت کردم"
-        },
-
-        {
-            id: 14,
-            title: "راننده 1",
-            subtitle: "سلام . حرکت کردم"
-        },
-        {
-            id: 15,
-            title: "راننده 1",
-            subtitle: "سلام . حرکت کردم"
-        },
-        {
-            id: 16,
-            title: "راننده 1",
-            subtitle: "سلام . حرکت کردم"
-        },
-        {
-            id: 17,
-            title: "راننده 1",
+            id: '9',
+            title: "راننده 9",
             subtitle: "سلام . حرکت کردم"
         },
 
         {
-            id: 18,
-            title: "راننده 1",
-            subtitle: "سلام . حرکت کردم"
-        },
-        {
-            id: 19,
-            title: "راننده 1",
-            subtitle: "سلام . حرکت کردم"
-        },
-        {
-            id: 20,
-            title: "راننده 1",
-            subtitle: "سلام . حرکت کردم"
-        },
-        {
-            id: 21,
-            title: "راننده 1",
+            id: '10',
+            title: "راننده 10",
             subtitle: "سلام . حرکت کردم"
         },
     ])
@@ -153,8 +96,10 @@ export default function ChatList() {
                         return (
                             <Box key={item.id}>
                                 <ChatItem 
+                                    id={item.id}
                                     title={item.title}
                                     subtitle={item.subtitle}
+                                    img={''}
                                 >
                                 </ChatItem>
 
